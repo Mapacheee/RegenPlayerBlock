@@ -1,0 +1,22 @@
+name: TemporalBlocks
+version: ${version}
+description: ${description}
+main: me.mapacheee.temporalblocks.TemporalBlocksPlugin
+api-version: 1.21
+author: mapacheee
+website: https://github.com/Mapacheee
+
+permissions:
+  temporalblocks.admin:
+    description: Permisos de administrador para TemporalBlocks
+    default: op
+  temporalblocks.bypass:
+    description: Permite bypasear la eliminación temporal de bloques
+    default: false
+
+commands:
+  temporalblocks:
+    description: Comando principal de TemporalBlocks
+    usage: /temporalblocks <reload|info>
+    permission: temporalblocks.admin
+    aliases: [tb, tblocks]

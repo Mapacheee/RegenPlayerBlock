@@ -1,0 +1,18 @@
+enabled-worlds:
+  - "world"
+  - "world_nether"
+  - "world_the_end"
+
+block-duration-seconds: 3
+regenerate-explosions: true
+excluded-blocks:
+  - "BEDROCK"
+  - "BARRIER"
+  - "END_PORTAL_FRAME"
+  - "END_PORTAL"
+  - "NETHER_PORTAL"
+debug: false
+
+# optional
+block-place-message: ""
+block-remove-message: ""
