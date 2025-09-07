@@ -1,7 +1,7 @@
 package me.mapacheee.temporalblocks.config;
 
 import com.google.inject.Inject;
-import com.thewinterframework.winter.annotation.Service;
+import com.thewinterframework.service.annotation.Service;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.slf4j.Logger;

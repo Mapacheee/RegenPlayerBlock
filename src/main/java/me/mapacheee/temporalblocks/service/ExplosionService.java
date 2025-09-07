@@ -1,10 +1,11 @@
 package me.mapacheee.temporalblocks.service;
 
-import com.example.temporalblocks.config.ConfigService;
-import com.example.temporalblocks.data.ExplosionData;
+import com.thewinterframework.service.annotation.lifecycle.OnDisable;
+import me.mapacheee.temporalblocks.config.ConfigService;
+import me.mapacheee.temporalblocks.data.ExplosionData;
 import com.google.inject.Inject;
-import com.thewinterframework.winter.annotation.OnDisable;
-import com.thewinterframework.winter.annotation.Service;
+import com.thewinterframework.service.annotation.Service;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;

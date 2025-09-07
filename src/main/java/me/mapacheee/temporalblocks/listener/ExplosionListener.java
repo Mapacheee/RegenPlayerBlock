@@ -1,8 +1,8 @@
 package me.mapacheee.temporalblocks.listener;
 
-import com.example.temporalblocks.service.ExplosionService;
+import com.thewinterframework.paper.listener.ListenerComponent;
+import me.mapacheee.temporalblocks.service.ExplosionService;
 import com.google.inject.Inject;
-import com.thewinterframework.winter.annotation.ListenerComponent;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

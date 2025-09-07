@@ -1,12 +1,13 @@
 package me.mapacheee.temporalblocks.service;
 
-import com.example.temporalblocks.config.ConfigService;
-import com.example.temporalblocks.data.TemporalBlock;
+import com.thewinterframework.service.annotation.Service;
+import com.thewinterframework.service.annotation.lifecycle.OnDisable;
+import com.thewinterframework.service.annotation.lifecycle.OnEnable;
+import com.thewinterframework.service.annotation.scheduler.RepeatingTask;
+import com.thewinterframework.utils.TimeUnit;
+import me.mapacheee.temporalblocks.config.ConfigService;
+import me.mapacheee.temporalblocks.data.TemporalBlock;
 import com.google.inject.Inject;
-import com.thewinterframework.winter.annotation.OnEnable;
-import com.thewinterframework.winter.annotation.OnDisable;
-import com.thewinterframework.winter.annotation.RepeatingTask;
-import com.thewinterframework.winter.annotation.Service;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,7 +18,6 @@ import org.slf4j.Logger;
 
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.TimeUnit;
 
 @Service
 public class TemporalBlockService {
@@ -87,7 +87,7 @@ public class TemporalBlockService {
         }
     }
 
-    @RepeatingTask(every = 1, unit = TimeUnit.SECONDS)
+    @RepeatingTask(every = 1, unit = TimeUnit.SECONDS, async = true)
     public void checkExpiredBlocks() {
         if (temporalBlocks.isEmpty()) {
             return;
@@ -100,7 +100,6 @@ public class TemporalBlockService {
             TemporalBlock temporalBlock = iterator.next();
 
             if (currentTime >= temporalBlock.getExpireTime()) {
-                // Programar la eliminación del bloque en el hilo principal
                 Bukkit.getScheduler().runTask(plugin, () -> {
                     Block block = temporalBlock.getLocation().getBlock();
                     if (block.getType() == temporalBlock.getOriginalMaterial()) {

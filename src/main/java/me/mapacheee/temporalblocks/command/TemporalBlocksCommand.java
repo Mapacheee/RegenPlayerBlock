@@ -1,10 +1,10 @@
 package me.mapacheee.temporalblocks.command;
 
-import com.example.temporalblocks.config.ConfigService;
-import com.example.temporalblocks.service.ExplosionService;
-import com.example.temporalblocks.service.TemporalBlockService;
+import me.mapacheee.temporalblocks.config.ConfigService;
+import me.mapacheee.temporalblocks.service.ExplosionService;
+import me.mapacheee.temporalblocks.service.TemporalBlockService;
 import com.google.inject.Inject;
-import com.thewinterframework.winter.annotation.ListenerComponent;
+import com.thewinterframework.service.annotation.Service;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
-@ListenerComponent
+@Service
 public class TemporalBlocksCommand implements CommandExecutor, TabCompleter {
 
     private final ConfigService configService;
