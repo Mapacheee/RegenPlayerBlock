@@ -1,14 +1,12 @@
-import jdk.tools.jlink.resources.plugins
-
 plugins {
     `java-library`
     id("io.papermc.paperweight.userdev") version "1.7.2"
     id("xyz.jpenilla.run-paper") version "2.3.0"
 }
 
-group = "com.example"
+group = "me.mapacheee"
 version = "1.0.0"
-description = "Plugin de bloques temporales con WinterFramework"
+description = "Plugin de bloques temporales"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(21))
@@ -20,14 +18,10 @@ repositories {
 }
 
 dependencies {
-    // Paper API
     paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
-
-    // Winter Framework
     api("com.thewinterframework:paper:1.0.0")
     annotationProcessor("com.thewinterframework:paper:1.0.0")
 
-    // Configurate for advanced config handling
     implementation("org.spongepowered:configurate-yaml:4.1.2")
     implementation("org.spongepowered:configurate-core:4.1.2")
 }
