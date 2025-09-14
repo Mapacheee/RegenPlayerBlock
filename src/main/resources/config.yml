@@ -1,18 +1,52 @@
+# ===========================================
+#           TemporalBlocks Configuration
+# ===========================================
+
+# List of worlds where placed blocks will be temporary
+# Blocks placed in these worlds will disappear after the configured time
+# World names must match exactly as they appear in your server
 enabled-worlds:
   - "world"
   - "world_nether"
   - "world_the_end"
+  # Add more worlds here as needed
 
+# Duration in seconds before blocks disappear
+# Default: 3 seconds
+# Min: 1, Max: 3600 (1 hour)
 block-duration-seconds: 3
+
+# Whether to regenerate blocks destroyed by explosions
+# When enabled, blocks destroyed by TNT, Creepers, etc. will be restored
+# after the same duration as placed blocks
 regenerate-explosions: true
+
+# List of block types that will NOT be removed temporarily
+# These blocks will remain permanent even in enabled worlds
+# Use exact Minecraft material names (case-sensitive)
 excluded-blocks:
   - "BEDROCK"
   - "BARRIER"
   - "END_PORTAL_FRAME"
   - "END_PORTAL"
   - "NETHER_PORTAL"
+  # Add more blocks to exclude as needed
+
+# Enable debug mode to see detailed information in console
+# Useful for troubleshooting and monitoring plugin activity
+# Set to true only when needed as it generates many log messages
 debug: false
 
-# optional
+# ===========================================
+#              Optional Messages
+# ===========================================
+
+# Message shown to players when they place a block (optional)
+# Leave empty ("") to disable this message
+# Supports color codes with & (e.g., "&aGreen text")
 block-place-message: ""
+
+# Message shown when a block disappears (optional)
+# Leave empty ("") to disable this message  
+# Supports color codes with & (e.g., "&cRed text")
 block-remove-message: ""

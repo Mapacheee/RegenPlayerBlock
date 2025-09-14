@@ -7,7 +7,8 @@ plugins {
 
 group = "me.mapacheee"
 version = "1.0.1"
-description = "Plugin de bloques temporales"
+description = "a plugin of temporal blocks"
+base.archivesName.set("TemporalBlocks")
 
 java {
     toolchain {

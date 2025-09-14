@@ -8,15 +8,15 @@ website: https://github.com/Mapacheee
 
 permissions:
   temporalblocks.admin:
-    description: Permisos de administrador para TemporalBlocks
+    description: Admin perms
     default: op
   temporalblocks.bypass:
-    description: Permite bypasear la eliminación temporal de bloques
+    description: bypass temporalblocks
     default: false
 
 commands:
   temporalblocks:
-    description: Comando principal de TemporalBlocks
+    description: Commands for temporal blocks
     usage: /temporalblocks <reload|info>
     permission: temporalblocks.admin
     aliases: [tb, tblocks]
