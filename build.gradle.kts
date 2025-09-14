@@ -1,15 +1,20 @@
 plugins {
-    `java-library`
+    java
     id("io.papermc.paperweight.userdev") version "1.7.2"
     id("xyz.jpenilla.run-paper") version "2.3.0"
+    id("com.gradleup.shadow") version "9.1.0"
 }
 
 group = "me.mapacheee"
-version = "1.0.0"
+version = "1.0.1"
 description = "Plugin de bloques temporales"
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
@@ -19,11 +24,19 @@ repositories {
 
 dependencies {
     paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
-    api("com.thewinterframework:paper:1.0.0")
-    annotationProcessor("com.thewinterframework:paper:1.0.0")
+
+    implementation("com.thewinterframework:paper:1.0.4")
+    annotationProcessor("com.thewinterframework:paper:1.0.4")
 
     implementation("org.spongepowered:configurate-yaml:4.1.2")
     implementation("org.spongepowered:configurate-core:4.1.2")
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("org.ow2.asm:asm:9.6")
+        force("org.ow2.asm:asm-commons:9.6")
+    }
 }
 
 tasks {
@@ -47,5 +60,23 @@ tasks {
         filesMatching("plugin.yml") {
             expand(props)
         }
+    }
+
+    shadowJar {
+        archiveClassifier.set("")
+
+        mergeServiceFiles()
+        manifest {
+            attributes(
+                "Multi-Release" to "true"
+            )
+        }
+
+        relocate("com.google.inject", "me.mapacheee.temporalblocks.libs.inject")
+        relocate("org.spongepowered.configurate", "me.mapacheee.temporalblocks.libs.configurate")
+    }
+
+    build {
+        dependsOn(shadowJar)
     }
 }
